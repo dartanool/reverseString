@@ -7,7 +7,7 @@
 `swapWithCasePreserved(array &$chars, int $left, int $right): void` - Меняет местами два символа в массиве с учётом их исходного регистра
 `isLetter(string $letter): bool` - Проверяет, является ли символ буквой (любой язык, Unicode)
 
-##Запуск тестов
+## Запуск тестов
 - Убедитесь, что установлен PHPUnit:
     
 ```composer require --dev phpunit/phpunit```
