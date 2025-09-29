@@ -1,14 +1,17 @@
-Основные функции
-- isLetter($char) — проверяет, является ли символ буквой любого языка.
-- saveCaseFlag($word) — возвращает массив флагов регистра для букв в слове.
-- getCasedWord($letters, $flags) — применяет сохранённый регистр к массиву букв.
-- reverse($str) — главная функция, которая обрабатывает всю строку, используя другие функции.
 
-Запуск тестов
+## Основные функции
+
+### `reverseEachWordPreserve(string $str): string` - Разбивает строку на части (слова и пробелы)
+### `processWordWithSeparators(string $word): string` - Разбивает слово по символам `-` и `'`
+### `reverseWordPreserve(string $word): string`- Преобразует слово в массив символов (`$chars`), ищет буквы, игнорируя знаки препинания
+### `swapWithCasePreserved(array &$chars, int $left, int $right): void` - Меняет местами два символа в массиве с учётом их исходного регистра
+### `isLetter(string $letter): bool` - Проверяет, является ли символ буквой (любой язык, Unicode)
+
+##Запуск тестов
 - Убедитесь, что установлен PHPUnit:
     
 ```composer require --dev phpunit/phpunit```
 
 - Запустите тесты командой в терминале:
 
-```vendor/bin/phpunit --colors --testdox tests/reverseTest.php``` 
+```vendor/bin/phpunit --colors --testdox tests/reverseTest.php```
