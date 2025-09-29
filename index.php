@@ -1,5 +1,5 @@
 <?php
-function reverseEachWordPreserve(string $str)
+function reverseEachWordPreserve(string $str) : string
 {
     //Разбиение по пробелам
     $tokens = preg_split('/(\s+)/u', $str, -1, PREG_SPLIT_DELIM_CAPTURE);
@@ -15,7 +15,7 @@ function reverseEachWordPreserve(string $str)
     return $result;
 }
 
-//Разбиение по девисам и апострофам
+//Разбиение по дефисам и апострофам
 function processWordWithSeparators(string $word) : string
 {
     $parts = preg_split("/(['-])/u", $word, -1, PREG_SPLIT_DELIM_CAPTURE);
@@ -32,7 +32,8 @@ function processWordWithSeparators(string $word) : string
 }
 
 //Переворачивание букв
-function reverseWordPreserve(string $word) : string{
+function reverseWordPreserve(string $word) : string
+{
     $chars = [];
     for ($i = 0; $i < mb_strlen($word); $i++) {
         $chars[] = mb_substr($word, $i, 1);
@@ -55,7 +56,7 @@ function reverseWordPreserve(string $word) : string{
 }
 
 //Меняем местами буквы с учетом регистра
-function swapWithCasePreserved(array &$chars, int $left, int $right)
+function swapWithCasePreserved(array &$chars, int $left, int $right) : void
 {
     $letter1 = $chars[$left];
     $letter2 = $chars[$right];
@@ -78,5 +79,4 @@ function isLetter(string $letter) : bool
 }
 
 $input = "ПриВет, can’t third-part is 'cold' now";
-$output = reverseEachWordPreserve($input);
-echo $output;
+echo reverseEachWordPreserve($input);
