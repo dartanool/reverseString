@@ -6,9 +6,9 @@
 
 Запуск тестов
 - Убедитесь, что установлен PHPUnit:
-    ```bash 
-composer require --dev phpunit/phpunit```
+    
+```composer require --dev phpunit/phpunit```
 
 - Запустите тесты командой в терминале:
-    ```bash
-vendor/bin/phpunit --colors --testdox tests/reverseTest.php``` 
+
+```vendor/bin/phpunit --colors --testdox tests/reverseTest.php``` 
