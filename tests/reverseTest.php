@@ -39,6 +39,6 @@ class reverseTest extends TestCase
     public function testThrowsErrorOnInvalidInput()
     {
         $this->expectException(TypeError::class);
-        reverseEachWordPreserve(null); // передаём не строку
+        reverseEachWordPreserve(null);
     }
 }
