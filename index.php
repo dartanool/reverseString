@@ -72,10 +72,10 @@ function getCasedWord(array $letters, array $flags){
         if ($flags[$i]) {
             $resultLetters[] = mb_strtoupper($letters[$i]);
         } else {
-            $resultLetters[] = $letters[$i];
+            $resultLetters[] = mb_strtolower($letters[$i]);
         }
     }
     return $resultLetters;
 }
 
-echo reverse('Can`t Third-part, sEcond thIrd');
+echo reverse('Сахур ЕноТ Can`t Third-part, sEcond thIrd');
