@@ -1,4 +1,10 @@
 <?php
+/**
+ * Обрабатывает строку, разворачивая каждое слово с сохранением регистра и пунктуации.
+ *
+ * @param string $str Входная строка для обработки.
+ * @return string Обработанная строка с перевёрнутыми словами.
+ */
 function reverseEachWordPreserve(string $str) : string
 {
     //Разбиение по пробелам
@@ -15,7 +21,12 @@ function reverseEachWordPreserve(string $str) : string
     return $result;
 }
 
-//Разбиение по дефисам и апострофам
+/**
+ * Разбивает слово по дефисам и апострофам.
+ *
+ * @param string $word Слово для обработки.
+ * @return string Слово с перевёрнутыми частями, разделёнными дефисами и апострофами.
+ */
 function processWordWithSeparators(string $word) : string
 {
     $parts = preg_split("/(['-])/u", $word, -1, PREG_SPLIT_DELIM_CAPTURE);
@@ -31,7 +42,12 @@ function processWordWithSeparators(string $word) : string
     return $processed;
 }
 
-//Переворачивание букв
+/**
+ * Переворачивание букв.
+ *
+ * @param string $word Слово для реверса.
+ * @return string Перевернутое слово с сохранённым регистром и пунктуацией.
+ */
 function reverseWordPreserve(string $word) : string
 {
     $chars = [];
@@ -55,7 +71,14 @@ function reverseWordPreserve(string $word) : string
     return implode('',$chars);
 }
 
-//Меняем местами буквы с учетом регистра
+/**
+ * Меняет местами буквы в массиве символов с учётом исходного регистра.
+ *
+ * @param array $chars Массив символов, который будет изменён по ссылке.
+ * @param int $left Индекс левого символа.
+ * @param int $right Индекс правого символа.
+ * @return void
+ */
 function swapWithCasePreserved(array &$chars, int $left, int $right) : void
 {
     $letter1 = $chars[$left];
@@ -72,7 +95,12 @@ function swapWithCasePreserved(array &$chars, int $left, int $right) : void
     $chars[$left] = $isUpper1 ? mb_strtoupper($low2) : $low2;
     $chars[$right] = $isUpper2 ? mb_strtoupper($low1) : $low1;
 }
-
+/**
+ * Проверяет, является ли символ буквой.
+ *
+ * @param string $letter символ для проверки.
+ * @return bool true, если символ — буква, иначе false.
+ */
 function isLetter(string $letter) : bool
 {
     return preg_match('/\p{L}/u', $letter) === 1;
